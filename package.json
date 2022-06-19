@@ -1,0 +1,33 @@
+{
+  "name": "ts-node-starter",
+  "engines": {
+    "node": "^14.18.0",
+    "npm": "^6.14.15"
+  },
+  "version": "1.0.0",
+  "description": "typescript node project boilerplate",
+  "author": "Misha Bruml",
+  "license": "ISC",
+  "type": "module",
+  "main": "dist/bundle.js",
+  "scripts": {
+    "tsc:check": "tsc --noEmit",
+    "lint": "npm run tsc:check && xo",
+    "test": "jest",
+    "start": "node dist/bundle.js"
+  },
+  "devDependencies": {
+    "@tsconfig/node14": "^1.0.1",
+    "@types/jest": "^26.0.24",
+    "@types/node": "^14.18.12",
+    "eslint-plugin-jest": "^24.7.0",
+    "eslint-plugin-security": "^1.4.0",
+    "jest": "^27.5.1",
+    "ts-jest": "^27.1.4",
+    "ts-loader": "^9.2.8",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.6.3",
+    "xo": "^0.45.0"
+  },
+  "dependencies": {}
+}
