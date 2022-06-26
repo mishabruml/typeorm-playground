@@ -1,0 +1,20 @@
+service: typeorm-playground
+
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+
+plugins:
+  - serverless-esbuild
+
+custom:
+  esbuild:
+    external:
+      - pg-native
+    plugins: sls-esbuild-plugins
+
+functions:
+  migrate:
+    handler: src/handlers/migrate.handler

@@ -11,9 +11,12 @@
 	"main": "dist/bundle.js",
 	"scripts": {
 		"tsc:check": "tsc --noEmit",
-		"lint": "npm run tsc:check && xo",
-		"test": "jest",
-		"start": "node dist/bundle.js"
+		"typeorm": "typeorm-ts-node-commonjs",
+		"typeorm:migration:generate": "USE_TS_MIGRATIONS=true npm run typeorm -- migration:generate src/handlers/migrations/migrate -d src/datasource.ts",
+		"typeorm:migration:run": "USE_TS_MIGRATIONS=true npm run typeorm -- migration:run -d src/datasource.ts",
+		"esbuild:build-plugin": "esbuild sls-esbuild-plugins/additionalEntrypointsGlobPlugin.ts --platform=node --outdir=sls-esbuild-plugins --bundle",
+		"sls:package": "npm run esbuild:build-plugin && sls package",
+		"sls:migrate": "npm run esbuild:build-plugin && sls invoke local --function migrate"
 	},
 	"devDependencies": {
 		"@tsconfig/node14": "^1.0.1",
